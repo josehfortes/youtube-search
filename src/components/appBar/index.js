@@ -4,6 +4,8 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 
+import SearchInput from '../input/searchInput'
+
 const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1
@@ -23,6 +25,7 @@ export default function ButtonAppBar() {
           <Typography variant="h6" className={classes.title}>
             Youtube Search
           </Typography>
+          <SearchInput />
         </Toolbar>
       </AppBar>
     </div>
