@@ -4,6 +4,7 @@ import Container from '@material-ui/core/Container'
 
 import AppBar from '../../components/appBar'
 import Header from '../../components/header'
+import VideoList from '../../components/videoList'
 
 export default function Home() {
   const [search, setSearch] = useState('')
@@ -13,7 +14,7 @@ export default function Home() {
       <AppBar search={search} setSearch={setSearch} />
       <Container>
         <Header text={search} />
-        <div>Conteudo</div>
+        <VideoList />
       </Container>
     </>
   )
