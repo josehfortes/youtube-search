@@ -15,7 +15,7 @@ function Header({ text }) {
 
   return (
     <div className={classes.root}>
-      <Typography variant="h4">{text}</Typography>
+      <Typography variant="h4">{text || 'Digite uma busca'}</Typography>
     </div>
   )
 }
