@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <>
-      <AppBar search={search} setSearch={setSearch} />
+      <AppBar setSearch={setSearch} />
       <Container>
         <Header text={search} />
         <VideoList />

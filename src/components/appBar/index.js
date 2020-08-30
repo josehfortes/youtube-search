@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
+import _ from 'lodash'
 
 import { makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
@@ -17,8 +18,16 @@ const useStyles = makeStyles(() => ({
   }
 }))
 
-function NavBar({ search, setSearch }) {
+function NavBar({ setSearch }) {
   const classes = useStyles()
+  const [searchInput, setSearchInput] = useState('')
+
+  const handleSearchInput = (value) => {
+    setSearchInput(value)
+    debounceSetSearch(value)
+  }
+
+  const debounceSetSearch = useCallback(_.debounce(setSearch, 2000), [])
 
   return (
     <div className={classes.root}>
@@ -28,7 +37,11 @@ function NavBar({ search, setSearch }) {
             Youtube Search
           </Typography>
           <div>
-            <SearchInput placeholder="Procure um vídeo" value={search} onChange={setSearch} />
+            <SearchInput
+              placeholder="Procure um vídeo"
+              value={searchInput}
+              onChange={handleSearchInput}
+            />
           </div>
         </Toolbar>
       </AppBar>
@@ -37,7 +50,6 @@ function NavBar({ search, setSearch }) {
 }
 
 NavBar.propTypes = {
-  search: PropTypes.string.isRequired,
   setSearch: PropTypes.func.isRequired
 }
 
