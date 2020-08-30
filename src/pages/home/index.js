@@ -8,7 +8,7 @@ import VideoList from '../../components/videoList'
 
 export default function Home() {
   const [search, setSearch] = useState('')
-
+  console.log(process.env.YOUTUBE_API_URL)
   return (
     <>
       <AppBar setSearch={setSearch} />
