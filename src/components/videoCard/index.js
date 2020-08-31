@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
@@ -19,19 +20,29 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-function VideoCard() {
+function VideoCard({ title, description, thumbnail, videoId }) {
   const classes = useStyles()
+
+  console.log({ title, description, thumbnail, videoId })
+
   return (
     <div className={classes.root}>
       <div className={classes.header}></div>
       <div className={classes.content}>
-        <Typography>Content dasdasd sad sadsadsad asdsa dsad as...</Typography>
+        <Typography>{description}</Typography>
         <Button fullWidth color="primary">
           Ver vídeo
         </Button>
       </div>
     </div>
   )
+}
+
+VideoCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  thumbnail: PropTypes.string.isRequired,
+  videoId: PropTypes.string.isRequired
 }
 
 export default VideoCard
