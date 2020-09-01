@@ -13,7 +13,7 @@ function VideoList({ list }) {
           key={`item-video-list-${key}`}
           title={snippet.title}
           description={snippet.description}
-          thumbnail={snippet.thumbnails.default.url}
+          thumbnail={snippet.thumbnails.medium.url}
           videoId={id.videoId}
         />
       ))}

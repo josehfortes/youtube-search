@@ -13,7 +13,10 @@ const useStyles = makeStyles((theme) => ({
   header: {
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.common.white,
-    height: '200px'
+    height: '180px',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover'
   },
   content: {
     padding: theme.spacing(1)
@@ -23,14 +26,17 @@ const useStyles = makeStyles((theme) => ({
 function VideoCard({ title, description, thumbnail, videoId }) {
   const classes = useStyles()
 
-  console.log({ title, description, thumbnail, videoId })
+  function openYoutubeVideo() {
+    window.open(`https://youtube.com/watch?v=${videoId}`, '_blank').focus()
+  }
 
   return (
     <div className={classes.root}>
-      <div className={classes.header}></div>
+      <div className={classes.header} style={{ backgroundImage: `url(${thumbnail})` }}></div>
       <div className={classes.content}>
-        <Typography>{description}</Typography>
-        <Button fullWidth color="primary">
+        <Typography variant="h6">{title}</Typography>
+        <Typography variant="caption">{description}</Typography>
+        <Button fullWidth color="primary" onClick={openYoutubeVideo}>
           Ver vídeo
         </Button>
       </div>
